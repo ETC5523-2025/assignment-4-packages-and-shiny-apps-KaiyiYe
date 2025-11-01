@@ -4,8 +4,23 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Kaiyi", "Ye", , "kyee0020@student.monash.edu", role = c("aut", "cre"))
 Description: An installable R package with a Shiny app and documented datasets to explore Yarra River water quality (1990s vs recent).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+Suggests: 
+    janitor,
+    knitr,
+    lubridate,
+    readr,
+    readxl,
+    rmarkdown
+VignetteBuilder: knitr
+Imports: 
+    dplyr,
+    ggplot2,
+    shiny,
+    shinythemes
+Depends: 
+    R (>= 3.5)
+LazyData: true
