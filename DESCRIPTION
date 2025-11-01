@@ -1,9 +1,9 @@
 Package: yarrariver
-Title: What the Package Does (One Line, Title Case)
+Title: Explore Yarra River Water Quality
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Kaiyi", "Ye", , "kyee0020@student.monash.edu", role = c("aut", "cre"))
+Description: An installable R package with a Shiny app and documented datasets to explore Yarra River water quality (1990s vs recent).
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
