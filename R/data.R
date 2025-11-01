@@ -4,7 +4,7 @@
 #' Observations are labeled as "1990s" (year <= 1999) or "recent" (year >= 2015); only these
 #' two periods are kept for direct comparison.
 #' 
-#' @format A tibble with columns:
+#' @format A data frame with 888 observations and 15 variables:
 #' \describe{
 #'   \item{parameter}{Character. Parameter name (pH, Water Temperature, Turbidity, EC).}
 #'   \item{period}{Factor. "1990s" or "recent".}
@@ -21,7 +21,7 @@
 #' Summary for plotting: within each parameter–period–hour cell,
 #' the median and IQR (25th/75th percentiles) of \code{value}.
 #' 
-#' @format A tibble with columns:
+#' @format A data frame with 68 observations and 6 variables:
 #' \describe{
 #'   \item{parameter}{Character. Parameter name.}
 #'   \item{period}{Factor. "1990s" or "recent".}
