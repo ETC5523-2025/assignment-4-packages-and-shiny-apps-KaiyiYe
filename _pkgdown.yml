@@ -2,6 +2,7 @@ url: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-KaiyiY
 template:
   bootstrap: 5
   bootswatch: flatly
+destination: docs
 
 home:
   title: "yarrariver"
