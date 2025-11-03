@@ -80,6 +80,7 @@ run_yarra_app()
 You can find the data cleaning script in
 `data-raw/prepare_yarra_data.R`.
 
-## Learn more
+## Website
 
-A vignette can help you learn more about this package:
+yarrariver package is published at:
+<https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-KaiyiYe/>

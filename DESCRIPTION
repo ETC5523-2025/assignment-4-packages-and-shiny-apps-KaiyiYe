@@ -5,7 +5,7 @@ Authors@R:
     person("Kaiyi", "Ye", , "kyee0020@student.monash.edu", role = c("aut", "cre"))
 Description: An installable R package with a Shiny app and documented datasets to explore Yarra River water quality (1990s vs recent).
 License: MIT + file LICENSE
-URL: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-KaiyiYe
+URL: https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-KaiyiYe/, https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-KaiyiYe
 BugReports: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-KaiyiYe/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

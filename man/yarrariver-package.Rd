@@ -11,6 +11,7 @@ An installable R package with a Shiny app and documented datasets to explore Yar
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-KaiyiYe/}
   \item \url{https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-KaiyiYe}
   \item Report bugs at \url{https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-KaiyiYe/issues}
 }
