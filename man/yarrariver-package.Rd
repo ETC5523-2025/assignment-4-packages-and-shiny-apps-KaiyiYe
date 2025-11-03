@@ -8,6 +8,14 @@
 \description{
 An installable R package with a Shiny app and documented datasets to explore Yarra River water quality (1990s vs recent).
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-KaiyiYe}
+  \item Report bugs at \url{https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-KaiyiYe/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Kaiyi Ye \email{kyee0020@student.monash.edu}
 

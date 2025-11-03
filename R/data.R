@@ -14,6 +14,9 @@
 #' }
 #' @details Created in \code{data-raw/prepare_yarra_data.R} from the raw files.
 #' @source Victorian Water Measurement Information System (WMIS): \url{https://data.water.vic.gov.au/}
+#' @examples
+#' data(yarra_wq_period)
+#' head(yarra_wq_period)
 "yarra_wq_period"
 
 #' Hourly medians (with IQR) by parameter and period
@@ -31,4 +34,7 @@
 #'   \item{q3}{Numeric. 75th percentile.}
 #' }
 #' @details Derived from \code{yarra_wq_period} in \code{data-raw/prepare_yarra_data.R}.
+#' @examples
+#' data(wq_hourly_median)
+#' head(wq_hourly_median)
 "wq_hourly_median"

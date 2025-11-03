@@ -25,4 +25,8 @@ the median and IQR (25th/75th percentiles) of \code{value}.
 \details{
 Derived from \code{yarra_wq_period} in \code{data-raw/prepare_yarra_data.R}.
 }
+\examples{
+data(wq_hourly_median)
+head(wq_hourly_median)
+}
 \keyword{datasets}

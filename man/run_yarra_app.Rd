@@ -6,6 +6,15 @@
 \usage{
 run_yarra_app(...)
 }
+\value{
+No return value; called for side effects.
+}
 \description{
-Opens the packaged Shiny app found under inst/app.
+Launch the Yarra River Shiny app
+}
+\examples{
+\dontrun{
+  launch_app()
+}
+
 }

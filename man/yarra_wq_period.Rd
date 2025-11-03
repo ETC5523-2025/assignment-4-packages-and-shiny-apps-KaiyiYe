@@ -28,4 +28,8 @@ two periods are kept for direct comparison.
 \details{
 Created in \code{data-raw/prepare_yarra_data.R} from the raw files.
 }
+\examples{
+data(yarra_wq_period)
+head(yarra_wq_period)
+}
 \keyword{datasets}

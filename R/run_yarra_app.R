@@ -2,7 +2,11 @@
 
 #' Launch the Yarra River Shiny app
 #'
-#' Opens the packaged Shiny app found under inst/app.
+#' @return No return value; called for side effects.
+#' @examples
+#' \dontrun{
+#'   launch_app()
+#' }
 #'
 #' @export
 run_yarra_app <- function(...) {

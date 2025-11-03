@@ -1,0 +1,35 @@
+url: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-KaiyiYe
+template:
+  bootstrap: 5
+  bootswatch: flatly
+
+home:
+  title: "yarrariver"
+  description: "Explore Yarra River water quality at YARRA @ CHANDLER HWY (1990s vs recent)."
+
+navbar:
+  structure:
+    left: [reference, articles]
+    right: [github]
+  components:
+    github:
+      icon: fab fa-github
+      href: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-KaiyiYe
+
+articles:
+  - title: Getting started
+    contents:
+    - getting-started
+    
+reference:
+  - title: "Data"
+    desc: "Packaged datasets for exploring Yarra River water quality change."
+    contents:
+      - yarra_wq_period
+      - wq_hourly_median
+      
+  - title: "Shiny app launcher"
+    desc: "Run the Shiny app for visualisation."
+    contents:
+      - run_yarra_app
+  
