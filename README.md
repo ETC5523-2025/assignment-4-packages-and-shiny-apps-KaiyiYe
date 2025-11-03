@@ -82,4 +82,4 @@ You can find the data cleaning script in
 
 ## Learn more
 
-A vignette can help you learn more about this package.
+A vignette can help you learn more about this package:

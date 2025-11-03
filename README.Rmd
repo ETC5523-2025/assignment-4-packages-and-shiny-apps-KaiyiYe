@@ -82,9 +82,7 @@ You can find the data cleaning script in `data-raw/prepare_yarra_data.R`.
 
 ## Learn more
 
-A vignette can help you learn more about this package.
-
-
+A vignette can help you learn more about this package:
 
 
 
