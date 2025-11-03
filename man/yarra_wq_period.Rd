@@ -5,7 +5,7 @@
 \alias{yarra_wq_period}
 \title{Yarra River water quality data with period labels}
 \format{
-A tibble with columns:
+A data frame with 888 observations and 15 variables:
 \describe{
 \item{parameter}{Character. Parameter name (pH, Water Temperature, Turbidity, EC).}
 \item{period}{Factor. "1990s" or "recent".}

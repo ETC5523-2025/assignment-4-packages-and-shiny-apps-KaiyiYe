@@ -6,7 +6,16 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of yarrariver is to …
+yarrariver is a R package for exploring Yarra River water quality at
+CHANDLER HIGHWAY KEW, comparing the 1990s with recent years (≥ 2015). It
+contains two cleaned datasets and a Shiny app that help you reproduce
+the core findings.
+
+- `yarra_wq_period`: each row represents an observation of measurement
+  labelled by `period`.
+- `wq_hourly_median`: derived hourly summaries (median + IQR) from
+  `yarra_wq_period`.
+- `run_yarra_app()`: a helper to launch the Shiny app.
 
 ## Installation
 
@@ -14,39 +23,46 @@ You can install the development version of yarrariver from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("pak")
-pak::pak("ETC5523-2025/assignment-4-packages-and-shiny-apps-KaiyiYe")
+# install.packages("remotes")
+remotes::install_github("ETC5523-2025/assignment-4-packages-and-shiny-apps-KaiyiYe")
+```
+
+## Load the data
+
+``` r
+library(yarrariver)
+
+data(yarra_wq_period)
+data(wq_hourly_median)
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+To compare water quality over time, examine changes in recorded
+measurements. For example, check whether recent pH levels are higher or
+lower than in the 1990s. You can visualise this by plotting pH
+distributions by period：
 
 ``` r
-library(yarrariver)
-## basic example code
+ph_dist <- dplyr::filter(yarra_wq_period, parameter == "pH")
+
+ggplot2::ggplot(
+  ph_dist,
+  ggplot2::aes(x = period, y = value, colour = period)
+) +
+  ggplot2::geom_boxplot(outlier.shape = NA, width = 0.65) +
+  ggplot2::geom_jitter(width = 0.15, alpha = 0.45, size = 0.9) +
+  ggplot2::labs(
+    title = "Distribution by Period — pH",
+    x = NULL, y = "Value"
+  ) +
+  ggplot2::theme_bw(base_size = 16) +
+  ggplot2::theme(aspect.ratio = 1, legend.position = "none")
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+You can also explore changes interactively with the Shiny app—select a
+parameter or period to view its distribution or hourly medians:
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+run_yarra_app()
 ```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.

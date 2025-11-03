@@ -45,14 +45,13 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   
-  # 按 period 先做基础过滤；parameter 在作图时处理 ALL vs 单参
   base_filtered <- reactive({
     yarrariver::yarra_wq_period |>
       mutate(parameter = as.character(parameter)) |>
       filter(period %in% input$period)
   })
   
-  # ---------- Distribution 图（原始观测值） ----------
+  # Distribution Plot
   output$p_dist <- renderPlot({
     df <- base_filtered()
     req(nrow(df) > 0)
@@ -91,7 +90,7 @@ server <- function(input, output, session) {
     }
   })
   
-  # ---------- Hourly Medians 图（用小时中位数与 IQR） ----------
+  # Hourly Medians Plot
   output$p_hourly <- renderPlot({
     df <- yarrariver::wq_hourly_median |>
       mutate(parameter = as.character(parameter)) |>

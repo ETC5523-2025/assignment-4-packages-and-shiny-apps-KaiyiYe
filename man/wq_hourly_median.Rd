@@ -5,7 +5,7 @@
 \alias{wq_hourly_median}
 \title{Hourly medians (with IQR) by parameter and period}
 \format{
-A tibble with columns:
+A data frame with 68 observations and 6 variables:
 \describe{
 \item{parameter}{Character. Parameter name.}
 \item{period}{Factor. "1990s" or "recent".}
