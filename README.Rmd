@@ -70,3 +70,21 @@ You can also explore changes interactively with the Shiny app—select a paramet
 run_yarra_app()
 ```
 
+## Overview of data
+
+- Source: [Victorian Water Measurement Information System (WMIS)](https://data.water.vic.gov.au/).
+
+- Site coverage: CHANDLER HIGHWAY KEW.
+
+- Parameter: pH, Water Temperature, Turbidity, Salinity as electrical conductivity.
+
+You can find the data cleaning script in `data-raw/prepare_yarra_data.R`.
+
+## Learn more
+
+A vignette can help you learn more about this package.
+
+
+
+
+
