@@ -6,42 +6,108 @@ library(ggplot2)
 
 .param_opts <- sort(unique(as.character(yarrariver::yarra_wq_period$parameter)))
 
-ui <- fluidPage(
-  theme = shinythemes::shinytheme("flatly"),
-  titlePanel("Yarra River Water Quality — 1990s vs Recent"),
-  sidebarLayout(
-    sidebarPanel(
-      width = 3,
-      h4("Controls"),
-      radioButtons(
-        "param_choice", "Parameter",
-        choices  = c("All" = "ALL", setNames(.param_opts, .param_opts)),
-        selected = "ALL",
-        inline   = TRUE
-      ),
-      checkboxGroupInput(
-        "period", "Period",
-        choices  = c("1990s","recent"),
-        selected = c("1990s","recent"),
-        inline   = TRUE
-      ),
-      helpText("Using package data only: ",
-               code("yarra_wq_period"), " & ", code("wq_hourly_median"),
-               ". See ", code("?yarra_wq_period"), ".")
-    ),
+ui <- fluidPage( 
+  theme = shinythemes::shinytheme("flatly"), 
+  
+  tags$head(tags$style(HTML("
+    /* Page background + base text color */
+    body { background-color: #f7f9fc; color: #1f2d3d; }
+
+    /* Enlarge page title from titlePanel() */
+    .container-fluid > h2, .container-fluid .title {
+      font-size: 30px;           /* ↑ 标题更大 */
+      line-height: 1.15;
+      letter-spacing: .2px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    /* Enlarge tab labels (the headbar of tabsetPanel) */
+    .nav-tabs > li > a {
+      font-size: 18px;           /* ↑ 标签文字更大 */
+      padding: 10px 16px;
+      font-weight: 600;
+      border-radius: 8px 8px 0 0;
+    }
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:focus,
+    .nav-tabs > li.active > a:hover {
+      font-size: 18px;           /* active 同步放大 */
+    }
+
+    /* Sidebar 'well' -> subtle card */
+    .well {
+      background: #ffffff !important;
+      border: 1px solid #e6e6e6 !important;
+      border-radius: 12px !important;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
+      padding: 16px 18px !important;
+    }
+
+    /* Tab content container polish */
+    .tab-content {
+      background: #ffffff;
+      border: 1px solid #e6e6e6; border-top: none;
+      border-radius: 0 12px 12px 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      padding: 14px 16px;
+    }
+
+    /* Plot containers get breathing room */
+    .shiny-plot-output { padding: 6px; }
+  "))),
+  
+  titlePanel("Yarra River Water Quality — 1990s vs Recent"), 
+  sidebarLayout( 
+    sidebarPanel( 
+      width = 3, 
+      h4("Controls"), 
+      radioButtons( 
+        "param_choice", "Parameter", 
+        choices = c("All" = "ALL", 
+                    setNames(.param_opts, .param_opts)), 
+        selected = "ALL", 
+        inline = TRUE ), 
+      checkboxGroupInput( 
+        "period", "Period", 
+        choices = c("1990s","recent"), 
+        selected = c("1990s","recent"), 
+        inline = TRUE 
+        ) 
+      ), 
+    
     mainPanel(
       width = 9,
       tabsetPanel(
-        tabPanel("Distribution",
-                 plotOutput("p_dist", height = "700px")
+        id = "main_tabs",  # optional, handy if you ever want to switch tabs programmatically
+        tabPanel(
+          "Distribution",
+          plotOutput("p_dist", height = "700px")
         ),
-        tabPanel("Hourly medians",
-                 plotOutput("p_hourly", height = "700px")
+        tabPanel(
+          "Hourly medians",
+          plotOutput("p_hourly", height = "700px")
+        ),
+        tabPanel(
+          "Guide",
+          h4("What the fields mean"),
+          tags$ul(
+            tags$li(tags$b("parameter"), ": pH; Water Temperature (°C); Turbidity (NTU); Salinity as electrical conductivity (µS/cm)."),
+            tags$li(tags$b("period"), ": “1990s” (year ≤ 1999) vs “recent” (year ≥ 2015)."),
+            tags$li(tags$b("hour"), ": 0–23; derived from measurement time.")
+          ),
+          h4("How to interpret the outputs"),
+          tags$ol(
+            tags$li(tags$b("Distribution"), ": Compare medians (box midline) and spread (IQR); points show individual observations."),
+            tags$li(tags$b("Hourly medians"), ": Lines show hourly medians; ribbons show IQR (variability); check if one period stays higher/lower across hours.")
+          )
         )
       )
     )
   )
 )
+
 
 server <- function(input, output, session) {
   
